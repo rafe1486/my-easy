@@ -3,8 +3,8 @@
     <actionCalls>
         <name>openReservationSubtab</name>
         <label>openReservationSubtab</label>
-        <locationX>237</locationX>
-        <locationY>452</locationY>
+        <locationX>714</locationX>
+        <locationY>317</locationY>
         <actionName>c:openRecordAction</actionName>
         <actionType>component</actionType>
         <inputParameters>
@@ -44,14 +44,14 @@
     <decisions>
         <name>assignCustomerLookup</name>
         <label>assignCustomerLookup</label>
-        <locationX>238</locationX>
-        <locationY>126</locationY>
+        <locationX>156</locationX>
+        <locationY>231</locationY>
         <defaultConnectorLabel>[Default Outcome]</defaultConnectorLabel>
         <rules>
             <name>isContact</name>
             <conditionLogic>and</conditionLogic>
             <conditions>
-                <leftValueReference>varSobjectType</leftValueReference>
+                <leftValueReference>varSObjectType</leftValueReference>
                 <operator>EqualTo</operator>
                 <rightValue>
                     <elementReference>Contact</elementReference>
@@ -66,7 +66,7 @@
             <name>isLead</name>
             <conditionLogic>and</conditionLogic>
             <conditions>
-                <leftValueReference>varSobjectType</leftValueReference>
+                <leftValueReference>varSObjectType</leftValueReference>
                 <operator>EqualTo</operator>
                 <rightValue>
                     <elementReference>Lead</elementReference>
@@ -83,14 +83,14 @@
         <dataType>Date</dataType>
         <expression>{!varStartDate}+{!varResLength}</expression>
     </formulas>
-    <interviewLabel>Create Reservation {!$Flow.CurrentDateTime}</interviewLabel>
+    <interviewLabel>Create Reservation  {!$Flow.CurrentDateTime}</interviewLabel>
     <label>Create Reservation</label>
     <processType>Flow</processType>
     <recordCreates>
         <name>createContactReservation</name>
         <label>createContactReservation</label>
-        <locationX>80</locationX>
-        <locationY>254</locationY>
+        <locationX>383</locationX>
+        <locationY>239</locationY>
         <assignRecordIdToReference>varReservationId</assignRecordIdToReference>
         <connector>
             <targetReference>updateContact</targetReference>
@@ -131,13 +131,13 @@
                 <elementReference>varNoOfGuests</elementReference>
             </value>
         </inputAssignments>
-        <object>Reservation__c</object>
+        <object>reservation__c</object>
     </recordCreates>
     <recordCreates>
         <name>createLeadReservation</name>
         <label>createLeadReservation</label>
-        <locationX>389</locationX>
-        <locationY>256</locationY>
+        <locationX>414</locationX>
+        <locationY>134</locationY>
         <assignRecordIdToReference>varReservationId</assignRecordIdToReference>
         <connector>
             <targetReference>updateLead</targetReference>
@@ -178,13 +178,13 @@
                 <elementReference>varNoOfGuests</elementReference>
             </value>
         </inputAssignments>
-        <object>Reservation__c</object>
+        <object>reservation__c</object>
     </recordCreates>
     <recordUpdates>
         <name>updateContact</name>
         <label>updateContact</label>
-        <locationX>82</locationX>
-        <locationY>356</locationY>
+        <locationX>57</locationX>
+        <locationY>331</locationY>
         <connector>
             <targetReference>openReservationSubtab</targetReference>
         </connector>
@@ -206,8 +206,8 @@
     <recordUpdates>
         <name>updateLead</name>
         <label>updateLead</label>
-        <locationX>385</locationX>
-        <locationY>354</locationY>
+        <locationX>568</locationX>
+        <locationY>138</locationY>
         <connector>
             <targetReference>openReservationSubtab</targetReference>
         </connector>
@@ -229,11 +229,11 @@
     <screens>
         <name>CustomerDetails</name>
         <label>CustomerDetails</label>
-        <locationX>77</locationX>
-        <locationY>62</locationY>
-        <allowBack>false</allowBack>
+        <locationX>161</locationX>
+        <locationY>95</locationY>
+        <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
-        <allowPause>false</allowPause>
+        <allowPause>true</allowPause>
         <connector>
             <targetReference>assignCustomerLookup</targetReference>
         </connector>
@@ -250,7 +250,7 @@
             <inputParameters>
                 <name>sobject</name>
                 <value>
-                    <elementReference>varSobjectType</elementReference>
+                    <elementReference>varSObjectType</elementReference>
                 </value>
             </inputParameters>
             <isRequired>true</isRequired>
@@ -309,14 +309,11 @@
         <dataType>Number</dataType>
         <isCollection>false</isCollection>
         <isInput>false</isInput>
-        <isOutput>true</isOutput>
+        <isOutput>false</isOutput>
         <scale>0</scale>
-        <value>
-            <numberValue>0.0</numberValue>
-        </value>
     </variables>
     <variables>
-        <name>varSobjectType</name>
+        <name>varSObjectType</name>
         <dataType>String</dataType>
         <isCollection>false</isCollection>
         <isInput>true</isInput>

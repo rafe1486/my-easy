@@ -1,17 +1,22 @@
-public class customerServices {
-    
+public class customerServices 
+{
     @auraEnabled
-    public static Customer getCustomerFields(String objectType){
+    public static Customer getCustomerFields(String objectType)
+    {
         Customer customer;
+        
         for(Customer_Fields__mdt c: [SELECT Customer_Name__r.QualifiedAPIName, Customer_Email__r.QualifiedAPIName, Customer_City__c, Customer_State__c, Customer_Status__r.QualifiedAPIName
-            FROM Customer_Fields__mdt WHERE Sobject_Type__r.QualifiedAPIName = :objectType]){
-                customer = new Customer(c.Customer_Name__r.QualifiedAPIName, c.Customer_Email__r.QualifiedAPIName, c.Customer_City__c, c.Customer_State__c, '', '');
+                                        FROM Customer_Fields__mdt 
+                                        WHERE Sobject_Type__r.QualifiedAPIName = :objectType])
+        {
+            customer = new Customer(c.Customer_Name__r.QualifiedAPIName, c.Customer_Email__r.QualifiedAPIName, c.Customer_City__c, c.Customer_State__c, '', '');
         }
+        
         return customer;
     }
 
-    public class Customer{
-
+    public class Customer
+    {
         //attributes that we associate with customers
         @auraEnabled
         public String email {get; set;}
@@ -32,7 +37,8 @@ public class customerServices {
         public String Id {get; set;}
 
         //putting them together, we get our wrapper object:
-        public Customer(String name, String email, String city, String state, String status, String custId){
+        public Customer(String name, String email, String city, String state, String status, String custId)
+        {
             this.name = name;
             if(String.isNotEmpty(email)) this.email = email;
             if(String.isNotEmpty(city)) this.city = city;
@@ -41,5 +47,4 @@ public class customerServices {
             if(String.isNotEmpty(custId)) this.Id = custId;    
         }
     }
-
 }

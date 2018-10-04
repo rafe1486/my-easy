@@ -1,4 +1,4 @@
-<aura:component implements="flexipage:availableForAllPageTypes" access="global" controller="reservationManagerController">
+<aura:component implements="flexipage:availableForAllPageTypes" access="global" controller="reservationManagerController">    
     <aura:attribute name="itemsList" type="Object[]" />
     <aura:attribute name="sobject" type="String"/>
     <aura:attribute name="badge" type="String"/>
@@ -14,4 +14,5 @@
             </aura:iteration>
         </ul>
     </div>
-</aura:component>	
+    
+</aura:component>

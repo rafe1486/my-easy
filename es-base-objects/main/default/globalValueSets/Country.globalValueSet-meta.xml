@@ -11,9 +11,9 @@
         <label>Canada</label>
     </customValue>
     <customValue>
-        <fullName>Trinidad and Tobago</fullName>
+        <fullName>Trinidad &amp; Tobago</fullName>
         <default>false</default>
-        <label>Trinidad and Tobago</label>
+        <label>Trinidad &amp; Tobago</label>
     </customValue>
     <customValue>
         <fullName>London</fullName>
@@ -31,9 +31,9 @@
         <label>Japan</label>
     </customValue>
     <customValue>
-        <fullName>South Africa</fullName>
+        <fullName>South America</fullName>
         <default>false</default>
-        <label>South Africa</label>
+        <label>South America</label>
     </customValue>
     <customValue>
         <fullName>Amsterdam</fullName>

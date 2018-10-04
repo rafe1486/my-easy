@@ -9,4 +9,4 @@
     <aura:method name="getStateMarkets" action="{!c.getStateMarkets}">
         <aura:attribute name="state" type="String" />
     </aura:method>
-</aura:component>	
+</aura:component>

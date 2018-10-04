@@ -4,4 +4,4 @@
         
         <lightning:workspaceAPI aura:id="workspace" />
 
-</aura:component>	
+</aura:component>
